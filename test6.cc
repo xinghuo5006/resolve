@@ -19,7 +19,7 @@ using namespace std;
             map.clear();  //must clear, to get the maxnum of specific point
             int duplicate = 1;//记录跟固定点重合的个数,why not be 0 ?  
               
-            for(int j = i+1 ; j < points.size(); j++){//遍历其他点，求其与固定点之间的斜率  ,must start from 0
+            for(int j = i+1 ; j < points.size(); j++){//遍历其他点，求其与固定点之间的斜率
                 if (i == j) continue;//如果是自己，跳过  
                 double slope = 0.0;//斜率  
                   

@@ -14,7 +14,7 @@ public:
 };
    Solution::Solution()
 {}
-   int  Solution::evalRPN(vector<string> &tokens) {
+    int Solution::evalRPN(vector<string> &tokens) {
         stack<int> s;
         int answer=0;
         int num1=0;
@@ -22,6 +22,8 @@ public:
         int i =0;
         if(tokens.empty())
             return 0;
+        if(tokens.size()==1 && tokens[0] >="0" &&tokens[0]<="9")
+            return atoi(tokens.at(0).c_str());
         while(i<tokens.size())
         {
             if(tokens[i]!="+"&&tokens[i]!="-"&&tokens[i]!="*"&&tokens[i]!="/")
@@ -49,9 +51,9 @@ public:
                         s.pop();
                         num2=s.top();
                         s.pop();
-                        answer=num1-num2;
+                        answer=num2-num1;
                         s.push(answer);
-i++;
+						i++;
                         break;
                  case 42:
                         num1=s.top();
@@ -60,19 +62,19 @@ i++;
                         s.pop();
                         answer=num1*num2;
                         s.push(answer);
-i++;
+						i++;
                         break;
                    case 47:
                         num1=s.top();
                         s.pop();
                         num2=s.top();
                         s.pop();
-                        answer=num1/num2;
+                        answer=num2/num1;
                         s.push(answer);
-i++;
+						i++;
                         break;
                     default:
-i++;
+						i++;
                         break;
                 }
             }
